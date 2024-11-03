@@ -1,7 +1,10 @@
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { Image, Stack, Text } from '@mantine/core';
+import { Flex, Group, Image, Stack, Text } from '@mantine/core';
+import Graph from '../../assets/Graph.svg';
 import Header from '../../assets/Header.svg';
 import Header2 from '../../assets/Header2.svg';
+import Martin from '../../assets/Martin.svg';
+import Page4 from '../../assets/page4.svg';
 
 import './styles.css';
 
@@ -9,9 +12,11 @@ const PgaeOne = () => {
   return (
     <div className="scroll-section" style={{ backgroundColor: '#E6E2E1' }}>
       <Stack gap="l">
-        <Text c="black" size="xl">
-          Beyond NO.
-        </Text>
+        <div>
+          <Text c="black" size="xl">
+            Beyond <a style={{ fontWeight: 700 }}>NO.</a>
+          </Text>
+        </div>
         <div style={{ display: 'flex', flexDirection: 'row' }}>
           <div style={{ marginRight: '10%' }}>
             <Text c="black" size="l">
@@ -19,7 +24,7 @@ const PgaeOne = () => {
               justice in the digital age.
             </Text>
             <div style={{ marginTop: '20%' }}>
-              <Text c="black" size="xl">
+              <Text c="black" size="xl" style={{ textDecoration: 'underline' }}>
                 Explore more
               </Text>
             </div>
@@ -40,14 +45,128 @@ const PgaeOne = () => {
 
 const PageTwo = () => {
   return (
-    <div className="scroll-section" style={{ backgroundColor: '#3C3C3C' }}>
-      <Stack gap="100px">
-        <Text c="black" size="xl" style={{ color: '#E6E2E1' }}>
+    <div className="scroll-section page2" style={{ backgroundColor: '#3C3C3C' }}>
+      <Stack>
+        <Text c="white" size="xl">
           Sample data
         </Text>
-        <Image src={Header2} />
-        {/* <Image src={Martin} /> */}
+        <Image src={Header2} style={{ zIndex: 1000 }} />
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: '32px',
+            right: '32px',
+            height: '80vh',
+            overflow: 'hidden',
+          }}
+        >
+          <Image
+            src={Martin}
+            style={{
+              objectFit: 'fill',
+            }}
+          />
+        </div>
       </Stack>
+    </div>
+  );
+};
+
+const PageThree = () => {
+  return (
+    <div className="scroll-section" style={{ backgroundColor: 'white' }}>
+      <Stack>
+        <div>
+          <Text c="black" size="xl">
+            Sample data
+          </Text>
+          <Text c="black" size="xl" style={{ textDecoration: 'underline' }}>
+            1950-2005
+          </Text>
+        </div>
+        <Flex direction="row">
+          <div style={{ width: '70%', position: 'relative' }}>
+            <div className="lower-left">
+              <Flex direction="row">
+                <div className="dot" style={{ backgroundColor: 'red' }} />
+                <div>Personal Attack</div>
+              </Flex>
+              <Flex direction="row">
+                <div className="dot" style={{ backgroundColor: '#2A357D' }} />
+                <div>Riot or Brawl</div>
+              </Flex>
+              <Flex direction="row">
+                <div className="dot" style={{ backgroundColor: '#EAA703' }} />
+                <div>Verbal or Written Expression</div>
+              </Flex>
+            </div>
+          </div>
+          <div style={{ width: '30%' }}>
+            <Text c="black" size="xl" fw={700}>
+              This map shows major social events in the U.S. post-WWII, drawn from the SPEED
+              Project’s Societal Stability Protocol. The SSP tracks events that disrupt daily life
+              and raise public anxiety, focusing on four main types: political protests, attacks,
+              state actions, and shifts in political power.{' '}
+            </Text>
+          </div>
+        </Flex>
+        <Flex
+          direction="row"
+          justify="center"
+          align="center"
+          style={{
+            position: 'relative',
+            bottom: 0,
+            width: '100%',
+            height: '60vh',
+            overflow: 'hidden',
+          }}
+        >
+          <Image src={Graph} style={{ zIndex: 1000, height: '100%', width: 'auto' }} />
+        </Flex>
+      </Stack>
+    </div>
+  );
+};
+
+const PageFour = () => {
+  return (
+    <div className="scroll-section" style={{ backgroundColor: '#E6E2E1', position: 'relative' }}>
+      <Flex
+        direction="row"
+        justify="center"
+        align="center"
+        style={{
+          position: 'relative',
+          bottom: 0,
+          width: '100%',
+          height: '95vh',
+          overflow: 'hidden',
+        }}
+      >
+        <Image src={Page4} style={{ zIndex: 1000, height: '100%', width: 'auto' }} />
+      </Flex>
+    </div>
+  );
+};
+
+const PageFive = () => {
+  return (
+    <div className="scroll-section" style={{ backgroundColor: 'white' }}>
+      <Flex direction="row">
+        <div style={{ width: '40%', position: 'relative' }}>
+          <Stack>
+            <Text c="#3C3C3C" size="xl">
+              Behind data
+            </Text>
+            <Text c="#3C3C3C" size="xl">
+              Behind data
+            </Text>
+          </Stack>
+        </div>
+        <div style={{ width: '60%' }}></div>
+      </Flex>
     </div>
   );
 };
@@ -64,7 +183,9 @@ const MainPage = () => {
     <>
       <PgaeOne />
       <PageTwo />
-      <PgaeOne />
+      <PageThree />
+      <PageFour />
+      <PageFive />
       <motion.div className="progress" style={{ scaleX }} />
     </>
   );

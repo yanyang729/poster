@@ -1,5 +1,5 @@
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { Flex, Group, Image, Stack, Text } from '@mantine/core';
+import { Divider, Flex, Grid, Group, Image, Stack, Text } from '@mantine/core';
 import Graph from '../../assets/Graph.svg';
 import Header from '../../assets/Header.svg';
 import Header2 from '../../assets/Header2.svg';
@@ -154,20 +154,76 @@ const PageFour = () => {
 const PageFive = () => {
   return (
     <div className="scroll-section" style={{ backgroundColor: 'white' }}>
-      <Flex direction="row">
+      <Flex direction="row" style={{ height: '100vh' }}>
         <div style={{ width: '40%', position: 'relative' }}>
-          <Stack>
+          <Stack gap="xl">
             <Text c="#3C3C3C" size="xl">
               Behind data
             </Text>
             <Text c="#3C3C3C" size="xl">
-              Behind data
+              How Data Visualization Helps Us Remember Stories
             </Text>
           </Stack>
         </div>
-        <div style={{ width: '60%' }}></div>
+        <div style={{ width: '60%', height: '100%' }}>
+          <Grid>
+            <Grid.Col span={6} style={{ height: '45vh' }}>
+              <GrpahBox
+                title1="01"
+                title2="Color Legend"
+                content="Each color represents a different type of event—political protests, attacks, state actions, and shifts in power. The legend acts as a key to distinguish each occurrence's nature, making it easier to see the different threads in the story of social change."
+              />
+            </Grid.Col>
+            <Grid.Col span={6} style={{ height: '45vh' }}>
+              <GrpahBox
+                title1="02"
+                title2="Attributes"
+                content="Important details such as event type, location, date, and participants are emphasized to help reveal patterns over time and place. By focusing on these attributes, users can see the bigger picture and remember individual stories within the timeline."
+              />
+            </Grid.Col>
+            <Grid.Col span={6} style={{ height: '45vh' }}>
+              <GrpahBox
+                title1="03"
+                title2="Layout"
+                content="Events are organized chronologically across the U.S., with larger icons for more impactful events. This layout guides users through a timeline of events, helping them understand the sequence and regional effects of each occurrence. Hovering over specific points reveals more details."
+              />
+            </Grid.Col>
+            <Grid.Col span={6} style={{ height: '45vh' }}>
+              <GrpahBox
+                title1="04"
+                title2="Interactive Tooltips"
+                content="Tooltips appear when users hover over each data point, offering additional information (date, description, participants) without cluttering the visual. These tooltips allow for a deeper dive into specific data points, helping users connect emotionally with each story and remember it more vividly."
+              />
+            </Grid.Col>
+          </Grid>
+        </div>
       </Flex>
     </div>
+  );
+};
+
+const GrpahBox = ({
+  title1,
+  title2,
+  content,
+}: {
+  title1: string;
+  title2: string;
+  content: string;
+}) => {
+  return (
+    <>
+      <Text size="lg" fw={600}>
+        {title1}
+      </Text>
+      <Text size="lg" fw={600}>
+        {title2}
+      </Text>
+      <div style={{ margin: '12px 0px', backgroundColor: 'black', height: '1px', width: '100%' }} />
+      <Text size="lg" c="#8A8A8A">
+        {content}
+      </Text>
+    </>
   );
 };
 

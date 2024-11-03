@@ -5,6 +5,7 @@ import Graph from '../../assets/Graph.svg';
 import Header from '../../assets/Header.svg';
 import Header2 from '../../assets/Header2.svg';
 import Header6 from '../../assets/Header6.svg';
+import Header7 from '../../assets/Header7.svg';
 import Martin from '../../assets/Martin.svg';
 import Page4 from '../../assets/page4.svg';
 
@@ -223,6 +224,27 @@ const PageSix = () => {
   );
 };
 
+const PageSeven = () => {
+  return (
+    <div className="scroll-section" style={{ backgroundColor: '#E6E2E1', position: 'relative' }}>
+      <Flex
+        direction="row"
+        justify="center"
+        align="center"
+        style={{
+          position: 'relative',
+          bottom: 0,
+          width: '100%',
+          height: '93vh',
+          overflow: 'hidden',
+        }}
+      >
+        <Image src={Header7} style={{ zIndex: 1000, height: '100%', width: 'auto' }} />
+      </Flex>
+    </div>
+  );
+};
+
 const GrpahBox = ({
   title1,
   title2,
@@ -265,7 +287,6 @@ const MainPage = () => {
   };
 
   const onClick = () => {
-    console.log('click');
     scrollToSection(ref);
   };
 
@@ -302,7 +323,7 @@ const MainPage = () => {
       <PageFour />
       <PageFive />
       <PageSix />
-
+      <PageSeven />
       <motion.div className="progress" style={{ scaleX }} />
     </>
   );

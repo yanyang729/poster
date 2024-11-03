@@ -186,7 +186,7 @@ const PageFive = () => {
 
 const PageSix = () => {
   return (
-    <div className="scroll-section" style={{ backgroundColor: '#3C3C3C', position: 'relative' }}>
+    <div className="scroll-section" style={{ backgroundColor: '#3C3C3C', position: 'relative', height: '100vh' }}>
       <Text c="#E6E2E1" size="xl">
         Beyond data
       </Text>

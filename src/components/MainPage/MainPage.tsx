@@ -1,5 +1,5 @@
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { Divider, Flex, Grid, Group, Image, Stack, Text } from '@mantine/core';
+import { Flex, Grid, Image, Stack, Text } from '@mantine/core';
 import DearData from '../../assets/DearData.svg';
 import Graph from '../../assets/Graph.svg';
 import Header from '../../assets/Header.svg';
@@ -8,6 +8,7 @@ import Header6 from '../../assets/Header6.svg';
 import Header7 from '../../assets/Header7.svg';
 import Martin from '../../assets/Martin.svg';
 import Page4 from '../../assets/page4.svg';
+import P5 from '../p5/p5';
 
 import './styles.css';
 
@@ -245,6 +246,19 @@ const PageSeven = () => {
   );
 };
 
+const PageEight = () => {
+  return (
+    <>
+      <div className="scroll-section" style={{ backgroundColor: 'white', position: 'relative' }}>
+        <Text c="#3C3C3C" size="xl">
+          Memorize data
+        </Text>
+        <P5 />
+      </div>
+    </>
+  );
+};
+
 const GrpahBox = ({
   title1,
   title2,
@@ -292,6 +306,7 @@ const MainPage = () => {
 
   return (
     <>
+      <PageEight />
       <PgaeOne onClick={onClick} />
 
       <div className="scroll-section page2" style={{ backgroundColor: '#3C3C3C' }} ref={ref}>
@@ -324,6 +339,7 @@ const MainPage = () => {
       <PageFive />
       <PageSix />
       <PageSeven />
+
       <motion.div className="progress" style={{ scaleX }} />
     </>
   );

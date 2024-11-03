@@ -54,3 +54,7 @@ html {
   height: 12px;
   border-radius: 50%;
 }
+
+.explore-more:hover {
+  cursor: pointer;
+}

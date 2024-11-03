@@ -1,14 +1,18 @@
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Divider, Flex, Grid, Group, Image, Stack, Text } from '@mantine/core';
+import DearData from '../../assets/DearData.svg';
 import Graph from '../../assets/Graph.svg';
 import Header from '../../assets/Header.svg';
 import Header2 from '../../assets/Header2.svg';
+import Header6 from '../../assets/Header6.svg';
 import Martin from '../../assets/Martin.svg';
 import Page4 from '../../assets/page4.svg';
 
 import './styles.css';
 
-const PgaeOne = () => {
+import { useRef } from 'react';
+
+const PgaeOne = ({ onClick }: { onClick: () => void }) => {
   return (
     <div className="scroll-section" style={{ backgroundColor: '#E6E2E1' }}>
       <Stack gap="l">
@@ -24,7 +28,13 @@ const PgaeOne = () => {
               justice in the digital age.
             </Text>
             <div style={{ marginTop: '20%' }}>
-              <Text c="black" size="xl" style={{ textDecoration: 'underline' }}>
+              <Text
+                c="black"
+                className="explore-more"
+                size="xl"
+                style={{ textDecoration: 'underline' }}
+                onClick={onClick}
+              >
                 Explore more
               </Text>
             </div>
@@ -38,36 +48,6 @@ const PgaeOne = () => {
           </div>
         </div>
         <Image src={Header} />
-      </Stack>
-    </div>
-  );
-};
-
-const PageTwo = () => {
-  return (
-    <div className="scroll-section page2" style={{ backgroundColor: '#3C3C3C' }}>
-      <Stack>
-        <Text c="white" size="xl">
-          Sample data
-        </Text>
-        <Image src={Header2} style={{ zIndex: 1000 }} />
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: '32px',
-            right: '32px',
-            height: '80vh',
-            overflow: 'hidden',
-          }}
-        >
-          <Image
-            src={Martin}
-            style={{
-              objectFit: 'fill',
-            }}
-          />
-        </div>
       </Stack>
     </div>
   );
@@ -119,7 +99,7 @@ const PageThree = () => {
             position: 'relative',
             bottom: 0,
             width: '100%',
-            height: '60vh',
+            height: '55vh',
             overflow: 'hidden',
           }}
         >
@@ -202,6 +182,47 @@ const PageFive = () => {
   );
 };
 
+const PageSix = () => {
+  return (
+    <div className="scroll-section" style={{ backgroundColor: '#3C3C3C', position: 'relative' }}>
+      <Text c="#E6E2E1" size="xl">
+        Beyond data
+      </Text>
+      <Flex
+        direction="row"
+        justify="center"
+        align="center"
+        style={{
+          position: 'relative',
+          bottom: 0,
+          width: '100%',
+          height: '32vh',
+          overflow: 'hidden',
+        }}
+      >
+        <Image src={Header6} style={{ zIndex: 1000, height: '32vh', width: 'auto' }} />
+      </Flex>
+      <Flex
+        direction="row"
+        justify="center"
+        align="end"
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          width: '100%',
+          height: '62vh',
+          overflow: 'hidden',
+          left: 0,
+          right: 0,
+          backgroundColor: 'white',
+        }}
+      >
+        <Image src={DearData} style={{ zIndex: 1000, height: '100%', width: 'auto' }} />
+      </Flex>
+    </div>
+  );
+};
+
 const GrpahBox = ({
   title1,
   title2,
@@ -229,19 +250,59 @@ const GrpahBox = ({
 
 const MainPage = () => {
   const { scrollYProgress } = useScroll();
+  const ref = useRef(null);
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001,
   });
 
+  const scrollToSection = (elementRef: React.RefObject<HTMLDivElement>) => {
+    window.scrollTo({
+      top: elementRef.current?.offsetTop,
+      behavior: 'smooth',
+    });
+  };
+
+  const onClick = () => {
+    console.log('click');
+    scrollToSection(ref);
+  };
+
   return (
     <>
-      <PgaeOne />
-      <PageTwo />
+      <PgaeOne onClick={onClick} />
+
+      <div className="scroll-section page2" style={{ backgroundColor: '#3C3C3C' }} ref={ref}>
+        <Stack>
+          <Text c="white" size="xl">
+            Sample data
+          </Text>
+          <Image src={Header2} style={{ zIndex: 1000 }} />
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: '32px',
+              right: '32px',
+              height: '80vh',
+              overflow: 'hidden',
+            }}
+          >
+            <Image
+              src={Martin}
+              style={{
+                objectFit: 'fill',
+              }}
+            />
+          </div>
+        </Stack>
+      </div>
       <PageThree />
       <PageFour />
       <PageFive />
+      <PageSix />
+
       <motion.div className="progress" style={{ scaleX }} />
     </>
   );

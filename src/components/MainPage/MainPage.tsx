@@ -56,6 +56,7 @@ const PgaeOne = ({ onClick }: { onClick: () => void }) => {
 };
 
 const PageThree = () => {
+  const size = useMediaQuery('(max-width: 768px)') ? 'xs' : 'lg';
   return (
     <div
       className="scroll-section"
@@ -91,7 +92,7 @@ const PageThree = () => {
             </Flex>
           </div>
           <div style={{ width: '50%' }}>
-            <Text c="black" size="xl" fw={700}>
+            <Text c="black" size={size} fw={700}>
               This map shows major social events in the U.S. post-WWII, drawn from the SPEED
               Project’s Societal Stability Protocol. The SSP tracks events that disrupt daily life
               and raise public anxiety, focusing on four main types: political protests, attacks,

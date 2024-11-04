@@ -26,27 +26,28 @@ const P5 = () => {
           End your journey by creating a personalized postcard to remember these social events.
         </Text>
         <div style={{ marginTop: '20%' }}>
-          <Text
-            c="black"
-            className="click"
-            size="xl"
-            style={{ textDecoration: 'underline' }}
-            onClick={pickRandomPoster}
-          >
-            Create
-          </Text>
+          {loading ? (
+            <Loader />
+          ) : (
+            <Text
+              c="black"
+              className="click"
+              size="xl"
+              style={{ textDecoration: 'underline' }}
+              onClick={pickRandomPoster}
+            >
+              Create
+            </Text>
+          )}
         </div>
       </div>
       <div style={{ height: '80vh' }}>
-        {!!selectedUrl &&
-          (loading ? (
-            <Loader />
-          ) : (
-            <Image
-              src={selectedUrl}
-              style={{ zIndex: 1000, height: '100%', width: '100%', objectFit: 'contain' }}
-            />
-          ))}
+        {!!selectedUrl && !loading && (
+          <Image
+            src={selectedUrl}
+            style={{ zIndex: 1000, height: '100%', width: '100%', objectFit: 'contain' }}
+          />
+        )}
       </div>
     </Flex>
   );

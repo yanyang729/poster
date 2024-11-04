@@ -1,6 +1,6 @@
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Flex, Grid, Image, Stack, Text } from '@mantine/core';
-import DearData from '../../assets/DearData.svg';
+// import DearData from '../../assets/DearData.svg';
 import Graph from '../../assets/Graph.svg';
 import Header from '../../assets/Header.svg';
 import Header2 from '../../assets/Header2.svg';
@@ -186,7 +186,10 @@ const PageFive = () => {
 
 const PageSix = () => {
   return (
-    <div className="scroll-section" style={{ backgroundColor: '#3C3C3C', position: 'relative', height: '100vh' }}>
+    <div
+      className="scroll-section"
+      style={{ backgroundColor: '#3C3C3C', position: 'relative', height: '100vh' }}
+    >
       <Text c="#E6E2E1" size="xl">
         Beyond data
       </Text>
@@ -219,7 +222,7 @@ const PageSix = () => {
           backgroundColor: 'white',
         }}
       >
-        <Image src={DearData} style={{ zIndex: 1000, height: '100%', width: 'auto' }} />
+        {/* <Image src={} style={{ zIndex: 1000, height: '100%', width: 'auto' }} /> */}
       </Flex>
     </div>
   );

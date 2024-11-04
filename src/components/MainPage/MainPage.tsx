@@ -92,23 +92,11 @@ const PageThree = () => {
             </Text>
           </div>
         </Flex>
-        <Flex
-          direction="row"
-          justify="center"
-          align="center"
-          style={{
-            position: 'relative',
-            bottom: 0,
-            width: '100%',
-            height: '55vh',
-            overflow: 'hidden',
-          }}
-        >
-          <Image
-            src="https://beyond-no.s3.us-east-1.amazonaws.com/assets/graph.svg"
-            style={{ zIndex: 1000, height: '100%', width: 'auto' }}
-          />
-        </Flex>
+
+        <Image
+          src="https://beyond-no.s3.us-east-1.amazonaws.com/assets/graph.svg"
+          style={{ zIndex: 1000, height: '100%', width: '100%', objectFit: 'cover' }}
+        />
       </Stack>
     </div>
   );
@@ -129,7 +117,7 @@ const PageFour = () => {
           overflow: 'hidden',
         }}
       >
-        <Image src={Page4} style={{ zIndex: 1000, height: '100%', width: 'auto' }} />
+        <Image src={Page4} style={{ zIndex: 1000 }} />
       </Flex>
     </div>
   );

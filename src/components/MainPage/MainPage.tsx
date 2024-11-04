@@ -284,7 +284,7 @@ const PageNine = () => {
   return (
     <div className="scroll-section" style={{ backgroundColor: 'white', position: 'relative' }}>
       <Flex
-        direction="row"
+        direction="column"
         justify="center"
         align="center"
         style={{
@@ -299,6 +299,26 @@ const PageNine = () => {
         }}
       >
         <Image src={Header9} style={{ zIndex: 1000, height: 'auto', width: '90%' }} />
+        <Flex direction="row" justify="space-between" align="end" style={{ width: '90%' }}>
+          <div>
+            <Text c="white">
+              Desigend by{' '}
+              <a href="https://www.linkedin.com/in/ye-lei/" style={{ color: 'white' }}>
+                Lei YE
+              </a>
+            </Text>
+            <Text c="white">
+              Develop by{' '}
+              <a href="https://www.linkedin.com/in/yang-yang-105344aa/" style={{ color: 'white' }}>
+                Yang YANG
+              </a>
+            </Text>
+          </div>
+          <div>
+            <Text c="white">@2024 D4BL</Text>
+            <Text c="white">Pérez Art Museum Miami</Text>
+          </div>
+        </Flex>
       </Flex>
     </div>
   );

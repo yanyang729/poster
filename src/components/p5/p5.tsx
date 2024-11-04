@@ -2,22 +2,26 @@ import { useState } from 'react';
 
 import './styles.css';
 
-import { Flex, Image, Text } from '@mantine/core';
+import { Flex, Image, Loader, Text } from '@mantine/core';
 
 const P5 = () => {
   const posterUrls = Array.from(
     { length: 5 },
     (_, i) => `https://beyond-no.s3.us-east-1.amazonaws.com/assets/posters/poster${i + 1}.png`
   );
-  const [selectedUrl, setSelectedUrl] = useState(posterUrls[0]);
-  const pickRandomPoster = () => {
+  const [loading, setLoading] = useState(false);
+  const [selectedUrl, setSelectedUrl] = useState('');
+  const pickRandomPoster = async () => {
     const randomIndex = Math.floor(Math.random() * posterUrls.length);
     setSelectedUrl(posterUrls[randomIndex]);
+    setLoading(true);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    setLoading(false);
   };
 
   return (
-    <Flex direction="row" style={{ height: '95%' }}>
-      <div className="left" style={{ width: '20%', paddingTop: '64px', paddingLeft: '32px' }}>
+    <Flex direction="row" gap="xl" style={{ marginTop: '64px' }} justify="start" align="start">
+      <div>
         <Text c="black" size="l">
           End your journey by creating a personalized postcard to remember these social events.
         </Text>
@@ -33,8 +37,16 @@ const P5 = () => {
           </Text>
         </div>
       </div>
-      <div className="right" style={{ width: '80%' }}>
-        <Image src={selectedUrl} style={{ zIndex: 1000, height: '100%', width: 'auto' }} />
+      <div style={{ height: '80vh' }}>
+        {!!selectedUrl &&
+          (loading ? (
+            <Loader />
+          ) : (
+            <Image
+              src={selectedUrl}
+              style={{ zIndex: 1000, height: '100%', width: '100%', objectFit: 'contain' }}
+            />
+          ))}
       </div>
     </Flex>
   );

@@ -7,6 +7,6 @@ variable "allowed_origins" {
 }
 
 variable "service_name" {
-  default = "beyond-no"
+  default = "poster-beyond-no"
 }
 

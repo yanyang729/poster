@@ -1,7 +1,7 @@
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Flex, Grid, Image, Stack, Text } from '@mantine/core';
 // import DearData from '../../assets/DearData.svg';
-import Graph from '../../assets/Graph.svg';
+// import Graph from '../../assets/Graph.svg';
 import Header from '../../assets/Header.svg';
 import Header2 from '../../assets/Header2.svg';
 import Header6 from '../../assets/Header6.svg';
@@ -105,7 +105,7 @@ const PageThree = () => {
             overflow: 'hidden',
           }}
         >
-          <Image src={Graph} style={{ zIndex: 1000, height: '100%', width: 'auto' }} />
+          {/* <Image src={Graph} style={{ zIndex: 1000, height: '100%', width: 'auto' }} /> */}
         </Flex>
       </Stack>
     </div>

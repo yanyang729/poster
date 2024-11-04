@@ -1,11 +1,10 @@
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Flex, Grid, Image, Stack, Text } from '@mantine/core';
-// import DearData from '../../assets/posters/DearData.svg';
-// import Graph from '../../assets/posters/Graph.svg';
 import Header from '../../assets/Header.svg';
 import Header2 from '../../assets/Header2.svg';
 import Header6 from '../../assets/Header6.svg';
 import Header7 from '../../assets/Header7.svg';
+import Header9 from '../../assets/Header9.svg';
 import Martin from '../../assets/Martin.svg';
 import Page4 from '../../assets/page4.svg';
 import P5 from '../p5/p5';
@@ -293,6 +292,30 @@ const GrpahBox = ({
   );
 };
 
+const PageNine = () => {
+  return (
+    <div className="scroll-section" style={{ backgroundColor: 'white', position: 'relative' }}>
+      <Flex
+        direction="row"
+        justify="center"
+        align="center"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          width: '100%',
+          overflow: 'hidden',
+          backgroundColor: '#1E1E1E',
+          height: '45vh',
+        }}
+      >
+        <Image src={Header9} style={{ zIndex: 1000, height: 'auto', width: '90%' }} />
+      </Flex>
+    </div>
+  );
+};
+
 const MainPage = () => {
   const { scrollYProgress } = useScroll();
   const ref = useRef(null);
@@ -315,7 +338,6 @@ const MainPage = () => {
 
   return (
     <>
-      <PageEight />
       <PgaeOne onClick={onClick} />
 
       <div className="scroll-section page2" style={{ backgroundColor: '#3C3C3C' }} ref={ref}>
@@ -348,7 +370,8 @@ const MainPage = () => {
       <PageFive />
       <PageSix />
       <PageSeven />
-
+      <PageEight />
+      <PageNine />
       <motion.div className="progress" style={{ scaleX }} />
     </>
   );
